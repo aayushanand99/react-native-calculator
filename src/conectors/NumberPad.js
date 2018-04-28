@@ -32,11 +32,11 @@ class NumberPad extends Component {
                 let input = row[i];
 
                 inputRow.push(
-                    <Button item={input} onPress={()=>this.onButtonPress(input)}/>
+                    <Button item={input} onPress={()=>this.onButtonPress(input)} key={i+" "}/>
                 );
             }
 
-            views.push(<View style={style.inputRow}>{inputRow}</View>)
+            views.push(<View style={style.inputRow} key={r+" "}>{inputRow}</View>)
         }
 
         return views;

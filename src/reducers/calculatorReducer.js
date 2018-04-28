@@ -101,21 +101,22 @@ export function calculator(state = INITIAL_STATE, action) {
                         operand_2 = parseFloat(input[i + 1]);
                         input[i-1] = operand_1+operand_2
                         input.splice(i, 2);
+                        i=input.length
                     } else if (input[i] == '-') {
                         operand_1 = parseFloat(input[i - 1]);
                         operand_2 = parseFloat(input[i + 1]);
                         input[i - 1] = operand_1 - operand_2
                         input.splice(i, 2);
+                        i = input.length
                     }
-                    i++;
                 }
-                output=input[0]
+                output = input[0].toFixed(3)
             }
             else
-                output = 0
+                output = expression || 0
             return {
                 ...state,
-                output: output.toFixed(3)
+                output: output
             }
             break
         default: return state
